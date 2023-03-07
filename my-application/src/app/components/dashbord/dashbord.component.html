@@ -1,0 +1,29 @@
+<!-- binding to single css class(class and style binding) -->
+<div class='view' [class.makeCenter]="true">
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table" [style.border]="'1px solid black'">
+                <thead>
+                    <tr>
+                        <th>s.no</th>
+                        <th>Dish</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of menus;let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.price | currency : 'INR'}}</td> 
+                        <!-- using currency pipes -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="components container-responsive">
+        <!-- passing data between two components using Input() and Output() using compound interactions -->
+        <app-food-orders (orderData)="getOrderData($event)" ></app-food-orders>
+        <app-chef-view [orders]="orders"></app-chef-view>
+    </div>
+</div>

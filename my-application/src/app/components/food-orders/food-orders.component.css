@@ -1,0 +1,29 @@
+*{
+    justify-items: center;
+    width: 50%;
+    justify-content: center;
+}
+
+.container{
+    width:auto;
+    height: 35px;
+    padding: 10px;
+    margin-right: 100px;
+}
+
+h3{
+    margin-top:28px ;
+}
+
+select,input{
+    width: 150px;
+    height: 40px;
+    margin:10px;
+    margin-right: 30px;
+}
+
+button{
+    width:100px;
+    margin-top: 40px;
+    margin-right: 50px;
+}
