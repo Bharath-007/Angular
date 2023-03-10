@@ -1,0 +1,21 @@
+<h3>Food Orders</h3>
+<p [style]="'color:red'">{{err}}</p>
+<div class="container">
+    <div>
+        <!-- evetnbinding using the change event -->
+        <select (change)="onSelect($event)">
+            <option value="empty">select</option>
+            <!-- using the inbuild direcctive ngFor to iterate over the object and render accordingly -->
+            <option *ngFor="let item of menus" [value]="item.name">{{item.name}}</option>
+        </select>
+    </div>
+    <div>
+        <input type="number" placeholder="Enter quantity" min="1" #quantity>
+    </div>
+    <div>
+        <h4>Total:{{getPrice() | calculateTotal : quantity1 }}</h4>
+    </div>
+    <div>
+        <button class="btn btn-success" (click)="sendOrder(quantity.value);quantity.value='';">Order</button>
+    </div>
+</div>

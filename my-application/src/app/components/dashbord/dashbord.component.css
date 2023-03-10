@@ -1,0 +1,22 @@
+.view{
+    display: flex;
+    flex-direction: column;
+}
+
+.makeCenter{
+    justify-content: center;
+    margin: auto;
+    justify-items: center;
+}
+
+.table-responsive{
+    margin:0 30%;
+}
+
+.components{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
+}

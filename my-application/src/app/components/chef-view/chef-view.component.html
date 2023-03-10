@@ -1,0 +1,3 @@
+<h3 [ngStyle]="style">Orders</h3>
+<p *ngIf="orders.length==0">Empty</p>
+<p *ngFor="let order of orders">{{order.name}} - {{order.quantity}}</p>
