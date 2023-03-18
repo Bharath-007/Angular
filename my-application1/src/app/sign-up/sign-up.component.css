@@ -1,25 +1,25 @@
-*{
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+* {
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
-h2{
-    text-align: center;
+h2 {
+  text-align: center;
 }
 
-form{
-    width: 400px;
-    height: 600px;
+form {
+  width: 400px;
+  height: 600px;
 }
 
-div{
-    margin: 20px;
+div {
+  margin: 20px;
 }
-button{
-    margin-left: 40%;
+button {
+  margin-left: 40%;
 }
 
-p{
-    text-align: center;
+p {
+  text-align: center;
 }
