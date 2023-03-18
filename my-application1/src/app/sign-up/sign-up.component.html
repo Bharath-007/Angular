@@ -1,82 +1,170 @@
 <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
-    <h2 [ngStyle]="{color:'#00000',marginTop:'2%'}">{{title | uppercase}}</h2>
-    <div class="form-group">
-        <input type="text" formControlName="username" class="form-control" placeholder="Enter name">
-        <ng-container
-            *ngIf="registerForm.controls['username'].hasError('required') && registerForm.controls['username'].touched && registerForm.controls['username'].invalid; then required;else checkUsername   "></ng-container>
-        <ng-template #required>
-            <span>*required</span>
-        </ng-template>
-        <ng-template #checkUsername>
-            <span *ngIf="registerForm.controls['username'].hasError('minlength') && registerForm.controls['username'].dirty && registerForm.controls['username'].invalid
-                ">Name must be atleast 4 characters</span>
-        </ng-template>
-    </div>
+  <h2 [ngStyle]="{ color: '#00000', marginTop: '2%' }">
+    {{ title | uppercase }}
+  </h2>
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="username"
+      class="form-control"
+      placeholder="Enter name"
+    />
+    <ng-container
+      *ngIf="
+        registerForm.controls['username'].hasError('required') &&
+          registerForm.controls['username'].touched &&
+          registerForm.controls['username'].invalid;
+        then required;
+        else checkUsername
+      "
+    ></ng-container>
+    <ng-template #required>
+      <span>*required</span>
+    </ng-template>
+    <ng-template #checkUsername>
+      <span
+        *ngIf="
+          registerForm.controls['username'].hasError('minlength') &&
+          registerForm.controls['username'].dirty &&
+          registerForm.controls['username'].invalid
+        "
+        >Name must be atleast 4 characters</span
+      >
+    </ng-template>
+  </div>
 
-    <div>
-        <input type="email" formControlName="email" class="form-control" placeholder="Enter email">
-        <ng-container
-            *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].dirty && registerForm.controls['email'].invalid;then required; else emailBlock"></ng-container>
-        <ng-template #required>
-            <span>*required</span>
-        </ng-template>
-        <ng-template #emailBlock>
-            <span
-                *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].dirty && registerForm.controls['email'].invalid">Invalid
-                email
-                ID</span>
-        </ng-template>
-    </div>
+  <div>
+    <input
+      type="email"
+      formControlName="email"
+      class="form-control"
+      placeholder="Enter email"
+    />
+    <ng-container
+      *ngIf="
+        registerForm.controls['email'].hasError('required') &&
+          registerForm.controls['email'].dirty &&
+          registerForm.controls['email'].invalid;
+        then required;
+        else emailBlock
+      "
+    ></ng-container>
+    <ng-template #required>
+      <span>*required</span>
+    </ng-template>
+    <ng-template #emailBlock>
+      <span
+        *ngIf="
+          registerForm.controls['email'].invalid &&
+          registerForm.controls['email'].dirty &&
+          registerForm.controls['email'].invalid
+        "
+        >Invalid email ID</span
+      >
+    </ng-template>
+  </div>
 
-    <div>
-        <input type="text" formControlName="phone" class="form-control" placeholder="Enter phone number">
+  <div>
+    <input
+      type="text"
+      formControlName="phone"
+      class="form-control"
+      placeholder="Enter phone number"
+    />
 
-        <ng-container
-            *ngIf="registerForm.controls['phone'].hasError('required') && registerForm.controls['phone'].dirty && registerForm.controls['phone'].invalid; then requiredPhone; else checkPhone"></ng-container>
-        <ng-template #requiredPhone>
-            <span>*phone number required</span>
-        </ng-template>
-        <ng-template #checkPhone>
-            <span
-                *ngIf="registerForm.controls['phone'].hasError('pattern') && registerForm.controls['phone'].dirty  && registerForm.controls['phone'].invalid">phone
-                number should contain 10 digits</span>
-        </ng-template>
-    </div>
+    <ng-container
+      *ngIf="
+        registerForm.controls['phone'].hasError('required') &&
+          registerForm.controls['phone'].dirty &&
+          registerForm.controls['phone'].invalid;
+        then requiredPhone;
+        else checkPhone
+      "
+    ></ng-container>
+    <ng-template #requiredPhone>
+      <span>*phone number required</span>
+    </ng-template>
+    <ng-template #checkPhone>
+      <span
+        *ngIf="
+          registerForm.controls['phone'].hasError('pattern') &&
+          registerForm.controls['phone'].dirty &&
+          registerForm.controls['phone'].invalid
+        "
+        >phone number should contain 10 digits</span
+      >
+    </ng-template>
+  </div>
 
-    <div>
-        <input type="password" formControlName="password" class="form-control" placeholder="Enter new password">
-        <ng-container
-            *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched; then passwordRequired; else checkPassword"></ng-container>
-        <ng-template #passwordRequired>
-            <span>* password required</span>
-        </ng-template>
-        <ng-template #checkPassword>
-            <span
-                *ngIf="registerForm.controls['password'].hasError('pattern') && registerForm.controls['password'].dirty && registerForm.controls['password'].invalid">password
-                should match minimum contraints</span>
-        </ng-template>
-    </div>
+  <div>
+    <input
+      type="password"
+      formControlName="password"
+      class="form-control"
+      placeholder="Enter new password"
+    />
+    <ng-container
+      *ngIf="
+        registerForm.controls['password'].hasError('required') &&
+          registerForm.controls['password'].touched;
+        then passwordRequired;
+        else checkPassword
+      "
+    ></ng-container>
+    <ng-template #passwordRequired>
+      <span>* password required</span>
+    </ng-template>
+    <ng-template #checkPassword>
+      <span
+        *ngIf="
+          registerForm.controls['password'].hasError('pattern') &&
+          registerForm.controls['password'].dirty &&
+          registerForm.controls['password'].invalid
+        "
+        >password should match minimum contraints</span
+      >
+    </ng-template>
+  </div>
 
-    <div>
-        <input type="password" formControlName="confirmPassword" class="form-control"
-            placeholder="Re-enter new password">
-        <ng-container
-            *ngIf="registerForm.controls['confirmPassword'].hasError('required') && registerForm.controls['confirmPassword'].touched; then confirmPasswordRequired; else checkConfirmPassword"></ng-container>
-        <ng-template #confirmPasswordRequired>
-            <span>* password required</span>
-        </ng-template>
-        <ng-template #checkConfirmPassword>
-            <span
-                *ngIf="registerForm.controls['confirmPassword'].dirty && !registerForm.controls['confirmPassword'].valid && registerForm.errors?.['passwordmatcherror']">Password
-                not matching</span>
-        </ng-template>
-    </div>
-    <div>
-        <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">SIGN UP</button>
-    </div>
-    <div [ngStyle]="{margin:'0px'}">
-        <p>Already have an account? <a routerLink="/">SignIn</a></p>
-    </div>
+  <div>
+    <input
+      type="password"
+      formControlName="confirmPassword"
+      class="form-control"
+      placeholder="Re-enter new password"
+    />
+    <ng-container
+      *ngIf="
+        registerForm.controls['confirmPassword'].hasError('required') &&
+          registerForm.controls['confirmPassword'].touched;
+        then confirmPasswordRequired;
+        else checkConfirmPassword
+      "
+    ></ng-container>
+    <ng-template #confirmPasswordRequired>
+      <span>* password required</span>
+    </ng-template>
+    <ng-template #checkConfirmPassword>
+      <span
+        *ngIf="registerForm.controls['confirmPassword'].dirty && !registerForm.controls['confirmPassword'].valid && registerForm.errors?.['passwordmatcherror']"
+        >Password not matching</span
+      >
+    </ng-template>
+  </div>
+  <div>
+    <button
+      class="btn btn-primary"
+      type="submit"
+      [disabled]="registerForm.invalid"
+    >
+      SIGN UP
+    </button>
+  </div>
+  <div [ngStyle]="{ margin: '0px' }">
+    <p>Already have an account? <a routerLink="/">SignIn</a></p>
+  </div>
 </form>
 
-<button type="button" class="btn btn-primary" (click)="updateBtn()">Update value</button>
+<button type="button" class="btn btn-primary" (click)="updateBtn()">
+  Update value
+</button>
