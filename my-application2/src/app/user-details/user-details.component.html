@@ -1,0 +1,10 @@
+<p>user-details works!</p>
+<ul
+  *ngFor="let user of users | paginate : { itemsPerPage: 3, currentPage: page }"
+>
+  <li>{{ user.name }}</li>
+</ul>
+
+<div class="d-flex justify-content-center">
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
