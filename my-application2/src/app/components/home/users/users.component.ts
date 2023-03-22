@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { UserService } from 'src/app/service/user.service';
 import { User } from '../interface/user';
 
@@ -10,10 +10,12 @@ import { User } from '../interface/user';
 })
 export class UsersComponent implements OnInit {
   users!: User[];
-  // pageSizeOptions: number[] = [5, 10, 25];
-  // pageSize: number = 5;
-  // pageIndex!: number;
-  // length!: number;
+  @ViewChild('MatPaginator1') MatPaginator1!: MatPaginator;
+  pageSizeOptions: number[] = [2, 3, 5, 1];
+  pageSize: number = 1;
+  pageIndex!: number;
+  length!: number;
+  dataSource: any;
 
   constructor(private userService: UserService) {}
 
@@ -22,8 +24,14 @@ export class UsersComponent implements OnInit {
       this.users = data;
     });
   }
-
-  // onPageChange(event: PageEvent) {
-  //   this.pageIndex = event.pageIndex;
-  // }
+  ngAfterViewInit() {
+    this.dataSource.data = this.users; // JSON data coming from API
+    this.dataSource.paginator = this.MatPaginator1;
+  }
+  onPageChange(event: PageEvent) {
+    this.pageIndex = event.length;
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+    this.MatPaginator1 = this.dataSource.paginator;
+  }
 }

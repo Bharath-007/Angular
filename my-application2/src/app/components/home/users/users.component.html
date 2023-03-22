@@ -28,25 +28,12 @@
   <pagination-controls (pageChange)="page = $event"></pagination-controls>
 </div> -->
 
-<!-- <mat-accordion>
-  <mat-expansion-panel *ngFor="let user of users">
-    <mat-expansion-panel-header>
-      <mat-panel-title>Panel {{ user.username }}</mat-panel-title>
-    </mat-expansion-panel-header>
-    <div>
-      <p>Name: {{ user.name }}</p>
-      <p>Username: {{ user.username }}</p>
-      <p>Email: {{ user.email }}</p>
-      <p>City: {{ user.address.city }}</p>
-      <button mat-stroked-button>{{ user.website }}</button>
-    </div>
-  </mat-expansion-panel>
-</mat-accordion> -->
-
-<!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
-
-<mat-accordion>
-  <mat-expansion-panel *ngFor="let user of users">
+<mat-accordion
+  *ngFor="
+    let user of users.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize)
+  "
+>
+  <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>Panel {{ user.username }}</mat-panel-title>
     </mat-expansion-panel-header>
@@ -60,10 +47,11 @@
   </mat-expansion-panel>
 </mat-accordion>
 
-<!-- <mat-paginator
-  [length]="length"
+<mat-paginator
+  #MatPaginator1
+  [length]="users.length"
   [pageSize]="pageSize"
   [pageSizeOptions]="pageSizeOptions"
   (page)="onPageChange($event)"
 >
-</mat-paginator> -->
+</mat-paginator>
