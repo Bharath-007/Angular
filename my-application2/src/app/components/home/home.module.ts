@@ -8,11 +8,13 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [UsersComponent],
   imports: [
     MatCardModule,
+    MatIconModule,
     MatExpansionModule,
     CommonModule,
     HomeRoutingModule,

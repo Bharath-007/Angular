@@ -1,13 +1,22 @@
 <div class="card m-auto mt-4">
   <div class="card-title text-center">Register</div>
   <div class="card-body">
-    <mat-horizontal-stepper #stepper>
+    <mat-horizontal-stepper
+      [linear]="true"
+      #stepper
+      #linearHorizontalStepper="matHorizontalStepper"
+      animationDuration="20ms"
+    >
       <mat-step
+        class="mat-header"
         linear="true"
+        [completed]="stepperStatus1"
         [stepControl]="userDetails"
-        [completed]="isLinear"
-        [editable]="true"
+        state="chat"
       >
+        <ng-template matStepperIcon="chat">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
         <form
           class="row align-items-center col-auto m-auto"
           [formGroup]="userDetails"
@@ -65,15 +74,15 @@
             <button
               mat-button
               matStepperNext
-              (click)="isLinear = !isLinear"
               [disabled]="userDetails.invalid"
+              (click)="stepperStatus1 = !stepperStatus1"
             >
               Next
             </button>
           </div>
         </form>
       </mat-step>
-      <mat-step [stepControl]="userCredentials" [completed]="isLinear">
+      <mat-step [stepControl]="userCredentials" [completed]="stepperStatus2">
         <form
           class="row align-items-center col-auto m-auto"
           [formGroup]="userCredentials"
@@ -117,7 +126,13 @@
             </mat-error>
           </mat-form-field>
           <div class="mt-4">
-            <button mat-button matStepperPrevious>Back</button>
+            <button
+              mat-button
+              matStepperPrevious
+              (click)="stepperStatus2 = stepperStatus2"
+            >
+              Back
+            </button>
             <button
               class="btn btn-primary"
               type="submit"

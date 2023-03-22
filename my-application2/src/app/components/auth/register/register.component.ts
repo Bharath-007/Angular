@@ -21,7 +21,9 @@ import { UserService } from 'src/app/service/user.service';
 export class RegisterComponent implements OnInit {
   userDetails!: FormGroup;
   userCredentials!: FormGroup;
-  isLinear: boolean = false;
+
+  stepperStatus1: boolean = false;
+  stepperStatus2: boolean = false;
 
   user!: Register;
   registeredStatus: boolean = false;
@@ -96,9 +98,12 @@ export class RegisterComponent implements OnInit {
   };
 
   getUserDetails() {
+    this.stepperStatus1 = !this.stepperStatus1;
+    console.log(this.stepperStatus1);
     return this.userDetails.value;
   }
   getUserCredentials() {
+    this.stepperStatus1 = !this.stepperStatus1;
     return this.userCredentials.value;
   }
 

@@ -9,11 +9,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
+    MatIconModule,
     AuthRoutingModule,
     NgbModule,
     MatStepperModule,
@@ -21,6 +24,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
+  ],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { displayDefaultIndicatorType: false },
+    },
   ],
 })
 export class AuthModule {}

@@ -3,5 +3,9 @@
   height: auto;
 }
 .mat-horizontal-stepper-header {
-  pointer-events: none;
+  display: flex;
+  height: 98px;
+  overflow: hidden;
+  align-items: center;
+  margin: 0 35%;
 }
