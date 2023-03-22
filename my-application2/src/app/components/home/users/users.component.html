@@ -1,0 +1,69 @@
+<!-- <div
+  class="container"
+  *ngFor="let user of users | paginate : { itemsPerPage: 2, currentPage: page }"
+>
+  <div class="card w-75 m-auto mt-4">
+    <div class="car-header">
+      <div class="row m-2">
+        <div class="col-6 text-uppercase">
+          <p class="font-weight-bold">{{ user.username }}</p>
+        </div>
+        <div class="col-6 text-end">
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ user.name }}</h5>
+      <ul class="card-text">
+        <li>Username: {{ user.username }}</li>
+        <li>Email: {{ user.email }}</li>
+        <li>City: {{ user.address.city }}</li>
+      </ul>
+      <a href="{{ user.website }}" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="d-flex justify-content-center fixed-bottom">
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div> -->
+
+<!-- <mat-accordion>
+  <mat-expansion-panel *ngFor="let user of users">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Panel {{ user.username }}</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+      <p>Name: {{ user.name }}</p>
+      <p>Username: {{ user.username }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>City: {{ user.address.city }}</p>
+      <button mat-stroked-button>{{ user.website }}</button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion> -->
+
+<!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let user of users">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Panel {{ user.username }}</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+      <p>Name: {{ user.name }}</p>
+      <p>Username: {{ user.username }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>City: {{ user.address.city }}</p>
+      <button mat-stroked-button>{{ user.website }}</button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<!-- <mat-paginator
+  [length]="length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="onPageChange($event)"
+>
+</mat-paginator> -->

@@ -1,0 +1,7 @@
+.card {
+  width: 600px;
+  height: auto;
+}
+.mat-horizontal-stepper-header {
+  pointer-events: none;
+}
