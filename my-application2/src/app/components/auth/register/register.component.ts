@@ -55,15 +55,7 @@ export class RegisterComponent implements OnInit {
             ),
           ],
         ],
-        confirmPassword: [
-          '',
-          [
-            Validators.required,
-            Validators.pattern(
-              /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/
-            ),
-          ],
-        ],
+        confirmPassword: ['', [Validators.required]],
       },
       {
         // validators: this.passwordValidator(),
@@ -81,11 +73,11 @@ export class RegisterComponent implements OnInit {
       console.log(password.value);
       console.log(confirmPassword.value);
 
-      return password?.value === confirmPassword?.value
-        ? confirmPassword?.setErrors({ passwordNotMatch: false })
-        : confirmPassword?.setErrors({ passwordNotMatch: true });
+      return password?.value !== confirmPassword?.value
+        ? confirmPassword?.setErrors({ passwordNotMatch: true })
+        : '';
     };
-  }
+  } //this won't working for this version
 
   matchPassword: ValidatorFn = (
     control: AbstractControl

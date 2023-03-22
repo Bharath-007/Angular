@@ -108,9 +108,7 @@
             <input matInput type="text" formControlName="confirmPassword" />
             <mat-error
               *ngIf="
-                userCredentials.controls['confirmPassword'].hasError(
-                  'required'
-                ) && userCredentials.controls['confirmPassword'].touched
+                userCredentials.controls['confirmPassword'].hasError('required')
               "
             >
               Confirm password is Required!
@@ -119,10 +117,17 @@
               *ngIf="
                 userCredentials.controls['confirmPassword'].getError(
                   'passwordNotMatch'
-                ) || userCredentials.controls['confirmPassword'].invalid
+                )
               "
             >
               Confirm password not matched
+            </mat-error>
+            <mat-error
+              *ngIf="userCredentials.controls['confirmPassword'].invalid"
+            >
+              json{{
+                userCredentials.controls["confirmPassword"].errors | json
+              }}
             </mat-error>
           </mat-form-field>
           <div class="mt-4">
