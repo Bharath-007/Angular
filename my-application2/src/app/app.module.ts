@@ -17,7 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-
+import { RouterModule } from '@angular/router';
+  
 @NgModule({
   declarations: [AppComponent, AuthComponent, HomeComponent],
   imports: [
@@ -37,6 +38,7 @@ import { MatTableModule } from '@angular/material/table';
     MatButtonModule,
     MatPaginatorModule,
     MatCardModule,
+    RouterModule,
   ],
   exports: [
     NgxPaginationModule,

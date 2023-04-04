@@ -9,7 +9,7 @@ import { LazyauthGuard } from './service/lazyauth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'auth/login',
+    redirectTo: 'auth',
     pathMatch: 'full',
   },
   {

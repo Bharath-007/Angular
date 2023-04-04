@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
-  AsyncValidatorFn,
   FormBuilder,
   FormGroup,
   ValidationErrors,
@@ -94,6 +93,7 @@ export class RegisterComponent implements OnInit {
     console.log(this.stepperStatus1);
     return this.userDetails.value;
   }
+
   getUserCredentials() {
     this.stepperStatus1 = !this.stepperStatus1;
     return this.userCredentials.value;
