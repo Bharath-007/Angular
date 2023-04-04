@@ -1,0 +1,21 @@
+<p class="text-center">Home</p>
+<Button class="btn btn-danger" (click)="logout()">Logout</Button>
+<div class="m-auto mt-4 col-1">
+  <button
+    *ngIf="!isUsers"
+    class="btn btn-success"
+    routerLink="/home/users"
+    (click)="toggleUsers()"
+  >
+    {{ toggle }}
+  </button>
+  <button
+    *ngIf="isUsers"
+    class="btn btn-danger"
+    routerLink="/home"
+    (click)="toggleUsers()"
+  >
+    {{ toggle }}
+  </button>
+</div>
+<router-outlet class="m-2"></router-outlet>
