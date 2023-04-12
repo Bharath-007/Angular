@@ -1,0 +1,66 @@
+<!-- <p>add-task works!</p>
+<div class="form-container">
+  <h2 class="mat-dialogue-title">Add Task</h2>
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Todo Name</mat-label>
+      <input matInput placeholder="Enter task name" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Todo Name</mat-label>
+      <input
+        matInput
+        placeholder="Enter task description"
+        formControlName="description"
+      />
+    </mat-form-field>
+  </form>
+</div> -->
+<div class="example-container">
+  <h2 class="mat-dialogue-title">Add Task</h2>
+  <form [formGroup]="todoForm" class="m-auto" (ngSubmit)="addTodo()">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Enter Todo Name"
+        formControlName="todoName"
+        required
+      />
+      <mat-error *ngIf="todoForm.controls['todoName'].hasError('required')"
+        >*required</mat-error
+      >
+      <mat-error *ngIf="todoForm.controls['todoName'].hasError('minlength')"
+        >minimum length 5</mat-error
+      >
+      <mat-error *ngIf="todoForm.controls['todoName'].invalid">{{
+        todoForm.controls["todoName"].errors | json
+      }}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Textarea</mat-label>
+      <textarea
+        formControlName="todoDescription"
+        placeholder="Enter desciption"
+        matInput
+      ></textarea>
+      <mat-error
+        *ngIf="todoForm.controls['todoDescription'].hasError('minlength')"
+        >minumum length 10</mat-error
+      >
+      <mat-error
+        *ngIf="todoForm.controls['todoDescription'].hasError('required')"
+        >*required</mat-error
+      >
+    </mat-form-field>
+    <button
+      class="ml-auto"
+      type="submit"
+      [disabled]="todoForm.invalid"
+      mat-raised-button
+      color="primary"
+      mat-dialog-close
+    >
+      ADD
+    </button>
+  </form>
+</div>

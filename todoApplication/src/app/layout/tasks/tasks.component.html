@@ -1,0 +1,74 @@
+<div>
+  <h1 class="header">Todo Application</h1>
+  <div>
+    <button class="view-btn" mat-raised-button (click)="toggleFavourites()">
+      {{ favouritesButton }}
+    </button>
+    <button class="logout-btn" mat-raised-button (click)="logOut()">
+      Logout
+    </button>
+  </div>
+</div>
+<div class="mat-elevation-8 task-lists">
+  <mat-accordion
+    class="mat-accordion"
+    [ngStyle]="{ margin: '20px' }"
+    *ngFor="
+      let task of todoLists$
+        | slice
+          : (currentPage - 1) * pageSize
+          : (currentPage - 1) * pageSize + pageSize
+    "
+  >
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title
+          [ngStyle]="{
+            textDecoration: task.isCompleted ? 'line-through' : 'grey'
+          }"
+        >
+          {{ task.todoName }}
+        </mat-panel-title>
+        <button
+          class="icon-btn"
+          mat-button
+          [ngStyle]="{
+            color: task.isCompleted ? 'green' : 'grey'
+          }"
+          (click)="addToCompleted(task?._id, $event)"
+        >
+          <mat-icon>check_circle</mat-icon>
+        </button>
+        <button
+          class="icon-btn"
+          mat-button
+          [ngStyle]="{
+            color: task.isFavourite ? 'black' : 'grey'
+          }"
+          (click)="addFavourites(task?._id, $event)"
+        >
+          <mat-icon>bookmark</mat-icon>
+        </button>
+        <button mat-button (click)="deleteTask(task?._id, $event)">
+          Delete
+        </button>
+      </mat-expansion-panel-header>
+      <p>{{ task.todoDescription }}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-paginator
+    [pageSizeOptions]="pageOptions"
+    [length]="todoLists$.length"
+    [pageSize]="pageSize"
+    [pageIndex]="currentPage - 1"
+    (page)="handlePageChange($event)"
+    showFirstLastButtons
+  >
+  </mat-paginator>
+</div>
+
+<button class="add-btn" mat-raised-button color="primary" (click)="addtask()">
+  Add Task
+</button>
+<!-- <p>data:{{ todoLists$ | json }}</p> -->
+<app-fovourites *ngIf="showFavourites"></app-fovourites>

@@ -1,0 +1,70 @@
+* {
+  overflow: hidden;
+}
+.icon-btn {
+  border: none;
+}
+
+.header {
+  text-align: center;
+  margin: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.task-lists {
+  margin: 0% 10%;
+}
+
+mat-panel-title {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
+
+.add-btn {
+  background-color: dodgerblue;
+  color: aliceblue;
+  border: none;
+  width: auto;
+  height: 40px;
+  padding: 10px;
+  border-radius: 7px;
+  margin: 20px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.add-btn:hover {
+  border-color: dodgerblue;
+}
+
+.view-btn {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: dodgerblue;
+  color: aliceblue;
+  border: none;
+  width: auto;
+  height: 40px;
+  padding: 10px;
+  border-radius: 7px;
+  margin: 20px;
+}
+
+.logout-btn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: dodgerblue;
+  color: aliceblue;
+  border: none;
+  width: auto;
+  height: 40px;
+  padding: 10px;
+  border-radius: 7px;
+  margin: 20px;
+}
+

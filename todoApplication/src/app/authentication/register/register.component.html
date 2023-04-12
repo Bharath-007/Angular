@@ -1,0 +1,160 @@
+<div class="card m-auto mt-4">
+    <div class="card-title text-center">Register</div>
+    <div class="card-body">
+      <mat-horizontal-stepper
+        [linear]="true"
+        #stepper
+        #linearHorizontalStepper="matHorizontalStepper"
+        animationDuration="20ms"
+      >
+        <mat-step
+          class="mat-header"
+          linear="true"
+          [completed]="stepperStatus1"
+          [stepControl]="userDetails"
+          state="chat"
+        >
+          <ng-template matStepperIcon="chat">
+            <mat-icon>forum</mat-icon>
+          </ng-template>
+          <form
+            class="row align-items-center col-auto m-auto"
+            [formGroup]="userDetails"
+            (ngSubmit)="getUserDetails()"
+          >
+            <ng-template matStepLabel class="align-items-center"
+              >Fill User Details</ng-template
+            >
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input
+                matInput
+                type="text"
+                placeholder="Name"
+                formControlName="name"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Age</mat-label>
+              <input
+                matInput
+                type="number"
+                placeholder="Age"
+                formControlName="age"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>City</mat-label>
+              <input
+                matInput
+                type="text"
+                placeholder="Enter City"
+                formControlName="city"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>State</mat-label>
+              <input
+                matInput
+                type="text"
+                placeholder="Enter State"
+                formControlName="state"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Pincode</mat-label>
+              <input
+                matInput
+                type="number"
+                placeholder="Enter Pincode"
+                formControlName="pincode"
+              />
+            </mat-form-field>
+            <div>
+              <button
+                mat-button
+                matStepperNext
+                [disabled]="userDetails.invalid"
+                (click)="stepperStatus1 = !stepperStatus1"
+              >
+                Next
+              </button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="userCredentials" [completed]="stepperStatus2">
+          <form
+            class="row align-items-center col-auto m-auto"
+            [formGroup]="userCredentials"
+            (ngSubmit)="getUserCredentials()"
+          >
+            <ng-template matStepLabel>Create Credentials</ng-template>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput type="text" formControlName="password" />
+              <mat-error
+                *ngIf="userCredentials.controls['password'].hasError('required')"
+              >
+                Password is Required!
+              </mat-error>
+              <mat-error
+                *ngIf="userCredentials.controls['password'].hasError('pattern')"
+              >
+                Password must follow this pattern!
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>ConfirmPassword</mat-label>
+              <input matInput type="text" formControlName="confirmPassword" />
+              <mat-error
+                *ngIf="
+                  userCredentials.controls['confirmPassword'].hasError('required')
+                "
+              >
+                Confirm password is Required!
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  userCredentials.controls['confirmPassword'].getError(
+                    'passwordNotMatch'
+                  )
+                "
+              >
+                Confirm password not matched
+              </mat-error>
+              <!-- <mat-error
+                  *ngIf="userCredentials.controls['confirmPassword'].invalid"
+                >
+                  json{{
+                    userCredentials.controls["confirmPassword"].errors | json
+                  }}
+                </mat-error> -->
+            </mat-form-field>
+            <div class="mt-4">
+              <button
+                mat-button
+                matStepperPrevious
+                (click)="stepperStatus2 = stepperStatus2"
+              >
+                Back
+              </button>
+              <button
+                class="btn btn-primary"
+                type="submit"
+                [disabled]="userCredentials.invalid"
+                (click)="userRegisteration()"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+    <div>
+      <p class="col-auto text-center m-2">
+        Already have an account? <a routerLink="/login">SignIn</a>
+      </p>
+    </div>
+  </div>
+  

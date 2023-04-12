@@ -1,0 +1,39 @@
+
+<!-- <p>{{ favouriteTasks$ | json }}</p> -->
+<div class="mat-elevation-8 task-lists">
+  <mat-accordion
+    class="mat-accordion"
+    [ngStyle]="{ margin: '20px' }"
+    *ngFor="
+      let task of favouriteTasks$
+        | slice
+          : (currentPage - 1) * pageSize
+          : (currentPage - 1) * pageSize + pageSize
+    "
+  >
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title
+          [ngStyle]="{
+            textDecoration: task.isCompleted ? 'line-through' : 'grey'
+          }"
+        >
+          {{ task.todoName }}
+        </mat-panel-title>
+        <!-- <button mat-button (click)="deleteTask(task?._id, $event)">
+            Delete
+          </button> -->
+      </mat-expansion-panel-header>
+      <p>{{ task.todoDescription }}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-paginator
+    [pageSizeOptions]="pageOptions"
+    [length]="favouriteTasks$.length"
+    [pageSize]="pageSize"
+    [pageIndex]="currentPage - 1"
+    (page)="handlePageChange($event)"
+    showFirstLastButtons
+  >
+  </mat-paginator>
+</div>

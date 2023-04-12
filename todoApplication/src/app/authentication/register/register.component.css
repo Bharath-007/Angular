@@ -1,0 +1,11 @@
+.card {
+  width: 600px;
+  height: auto;
+}
+.mat-horizontal-stepper-header {
+  display: flex;
+  height: 98px;
+  overflow: hidden;
+  align-items: center;
+  margin: 0 35%;
+}
