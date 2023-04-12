@@ -1,0 +1,16 @@
+.header {
+  text-align: center;
+  margin: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.task-lists {
+  margin: 0% 10%;
+}
+
+mat-panel-title {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
