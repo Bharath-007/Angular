@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   //using subject to notify changes
-  destroyNotifier$: Subject<void> = new Subject<void>();
+  unSubscribe$: Subject<void> = new Subject<void>();
 
   //using SUBSCRIBTION to get the data from the observable
   constructor(private userService: DataServiceService) {}
@@ -54,7 +54,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
             });
         }),
         catchError((err) => of(err.status, err.message)),
-        takeUntil(this.destroyNotifier$)
+        takeUntil(this.unSubscribe$)
       )
       .subscribe((products: limitedProducts[]) => {
         this.products$ = products;
@@ -68,8 +68,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // console.log(`destroyed - ${JSON.stringify(this.destroyNotifier$)}`);
-    this.destroyNotifier$.next();
-    this.destroyNotifier$.complete();
+    // console.log(`destroyed - ${JSON.stringify(this.unSubscribe$)}`);
+    this.unSubscribe$.next();
+    this.unSubscribe$.complete();
   }
 }
