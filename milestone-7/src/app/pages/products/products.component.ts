@@ -72,4 +72,5 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.unSubscribe$.next();
     this.unSubscribe$.complete();
   }
+  
 }
