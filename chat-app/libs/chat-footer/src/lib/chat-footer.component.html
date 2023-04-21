@@ -1,0 +1,25 @@
+<div class="form-group">
+  <!-- {{ message }} -->
+  <form #myForm="ngForm" (ngSubmit)="onSend(myForm)">
+    <!-- user name -->
+    <input
+      type="text"
+      class="form-control"
+      name="username"
+      id="username"
+      ngModel
+      placeholder="Username"
+      required
+    />
+    <input
+      type="text"
+      class="form-control"
+      name="message"
+      id="input-message"
+      placeholder="Enter your message here..."
+      ngModel
+      required
+    />
+    <button color="primary" type="submit" mat-button>Send</button>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@chat-app/chat-body": ["libs/chat-body/src/index.ts"],
+      "@chat-app/chat-footer": ["libs/chat-footer/src/index.ts"],
+      "@chat-app/chat-header": ["libs/chat-header/src/index.ts"],
+      "@chat-app/util": ["libs/util/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
