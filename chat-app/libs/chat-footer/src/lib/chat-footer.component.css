@@ -1,0 +1,26 @@
+.form-group {
+  background-color: rgb(43, 42, 42);
+  padding: 20px;
+  color: White;
+  display: flex;
+  flex-direction: row;
+}
+
+input {
+  margin-left: 10px;
+  height: 30px;
+  min-width: 300px;
+  padding-inline: 15px;
+}
+
+/* button {
+  border-radius: 2px;
+  background-color: white;
+  border-radius: 2px;
+  color: black;
+  margin: 0 30px;
+} */
+
+* {
+  justify-content: center;
+}

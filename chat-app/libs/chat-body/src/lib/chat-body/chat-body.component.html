@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="chat-content">
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let chat of chatMessages">
+          <strong>{{ chat.user }}</strong>
+          <span>{{ chat.message }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
