@@ -15,12 +15,20 @@ export class ChatFooterComponent implements OnInit {
   }
 
   onSend(form: NgForm) {
-    const chatDetails = {
-      user: form.value.username,
-      message: form.value.message,
-    };
-    this.chatService.sendMessage(chatDetails);
-    form.controls['message'].reset();
-    console.log(chatDetails);
+    if (form.value.username !== '' && form.value.message !== '') {
+      const chatDetails = {
+        user: form.value.username,
+        message: form.value.message,
+      };
+      this.chatService.sendMessage(chatDetails);
+      form.controls['message'].reset();
+      console.log(chatDetails);
+    } else {
+      if (form.value.username === '') {
+        console.log('Username should not be empty');
+      } else {
+        console.log('Message should not be empty');
+      }
+    }
   }
 }
